@@ -1,0 +1,24 @@
+import grpc
+import captcha_pb2
+import captcha_pb2_grpc
+
+def run():
+    # Connect to the gRPC server
+    with grpc.insecure_channel('localhost:50051') as channel:
+        # Create a stub (client)
+        stub = captcha_pb2_grpc.CaptchaDecoderStub(channel)
+
+        # Replace the following base64_string with your actual base64-encoded image data
+        base64_string = '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'
+
+        # Create a request with the base64-encoded image
+        request = captcha_pb2.Base64Input(base64_data=base64_string)
+
+        # Make the gRPC request
+        response = stub.Base64ToText(request)
+
+        # Print the server's response
+        print("Server Response:", response.text_data)
+
+if __name__ == '__main__':
+    run()
