@@ -69,7 +69,7 @@ Use the .proto file to create required protocol buffers code :
 
 Now we can write the client app using the three generated files :
 
-![Sample Image](relative/sample-py-client/images/1.png)
+![Sample Image](https://github.com/swaaap-nil/OCR-MicroService/blob/main/sample-py-client/images/1.png)
 
 ```python
 import grpc
